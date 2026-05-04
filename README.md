@@ -1,6 +1,9 @@
-# 💠 NexusFlow: The Next Gen
+# 💠 NexusFlow
 
 NexusFlow is a high-performance, futuristic web interface designed to showcase modern digital architecture. Built with a "Mobile First" philosophy, it utilizes CSS Grid, Flexbox, and Glassmorphism to create a seamless, high-tech user experience.
+
+# Preview
+- Live site - https://ndilisa.github.io/nexus-flow/
 
 ## 🚀 Key Features
 
