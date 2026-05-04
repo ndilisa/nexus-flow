@@ -1,0 +1,463 @@
+/* --- Futuristic Root Variables --- */
+:root {
+    --bg-deep: #05060a;
+    --card-bg: rgba(20, 22, 30, 0.7);
+    --neon-cyan: #00f2ff;
+    --neon-purple: #bc13fe;
+    --text-main: #e0e6ed;
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-cyber: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- Base Layout --- */
+html {
+    scroll-behavior: smooth;
+    /* Smooth scroll for the Explore button */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: var(--font-cyber);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- Futuristic Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(5, 6, 10, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #888;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* --- Hero Section (index.html) --- */
+.hero-section {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #101525 0%, #05060a 100%);
+    padding: 0 10%;
+}
+
+
+.hero-section h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    background: linear-gradient(to right, #fff, var(--neon-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+/* Container must be relative so video can be absolute */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background-color: #05060a;
+    /* Matches your --bg-deep variable */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    /* Deepest layer */
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* This adds a subtle dark tint over the video to keep your cyan text popping */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 6, 10, 0.6);
+    /* Adjust 0.6 to make it darker or lighter */
+    z-index: -1;
+    /* Between video and text */
+}
+
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    /* Ensures text and buttons are on top */
+}
+
+/* --- Home: Explore Detail Section (Triggered by Explore Button) --- */
+.explore-detail {
+    padding: 100px 10%;
+    background: linear-gradient(to bottom, var(--bg-deep), #0d1117);
+    display: flex;
+    justify-content: center;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    padding: 4rem;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    max-width: 900px;
+    text-align: center;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    gap: 1rem;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+    font-weight: bold;
+}
+
+/* --- Interactive Features (features.html) --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 5rem 10%;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+    position: relative;
+    cursor: pointer;
+}
+
+/* Refined Low-Contrast Hover for Features */
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 255, 0.4);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.feature-card h3 {
+    color: var(--neon-cyan);
+    margin-bottom: 1rem;
+}
+
+.feature-showcase {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 100px 10%;
+    flex-wrap: wrap;
+    /* Stacks on mobile */
+}
+
+.showcase-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.showcase-video {
+    flex: 1;
+    min-width: 300px;
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+    border-radius: 8px;
+    overflow: visible;
+}
+
+.side-video {
+    width: 100%;
+    display: block;
+    filter: brightness(0.8);
+}
+
+.feature-list {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.feature-list li {
+    margin-bottom: 1rem;
+    color: #888;
+}
+
+.feature-list span {
+    color: var(--neon-cyan);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* --- Global Button Styling --- */
+
+.glow-btn,
+.nav-cta,
+button {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+.glow-btn:hover,
+.nav-cta:hover,
+button:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-deep);
+    box-shadow: 0 0 25px var(--neon-cyan);
+}
+
+/* --- About Us: Minimalist Narrative --- */
+.about-vision {
+    padding: 100px 15%;
+    text-align: center;
+}
+
+.about-vision h1 {
+    color: var(--neon-cyan);
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+.about-vision p {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-narrative {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.about-video-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.mission-video {
+    width: 100%;
+    border-radius: 4px;
+    opacity: 0.7;
+}
+
+.video-frame {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px solid var(--glass-border);
+    pointer-events: none;
+}
+
+/* --- Testimonials: Transmission Logs --- */
+.testimonial-view {
+    padding: 80px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.log-entry {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 2px solid var(--neon-purple);
+    padding: 2rem;
+    width: 100%;
+    max-width: 700px;
+    transition: var(--transition);
+}
+
+.log-entry:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-left-color: var(--neon-cyan);
+}
+
+.log-entry cite {
+    display: block;
+    margin-top: 1rem;
+    color: var(--neon-cyan);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* --- Contact Us: Terminal Form --- */
+.contact-terminal {
+    padding: 100px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.terminal-form {
+    width: 100%;
+    max-width: 600px;
+    background: #0d0e12;
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.terminal-form input,
+.terminal-form textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--glass-border);
+    border-radius: 0;
+    padding: 1rem 0;
+    color: white;
+    transition: 0.3s;
+}
+
+.terminal-form input:focus,
+.terminal-form textarea:focus {
+    outline: none;
+    border-bottom: 1px solid var(--neon-cyan);
+}
+
+.terminal-form button {
+    margin-top: 2rem;
+    align-self: flex-start;
+}
+
+/* --- Home Page Tweaks --- */
+.mt-4 {
+    margin-top: 3rem;
+    /* Pushes the Explore button down */
+    display: inline-block;
+}
+
+/* --- Subscribe Section: The Portal --- */
+.sub-portal {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--neon-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--neon-cyan);
+    animation: pulse 2s infinite;
+}
+
+.sub-portal p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Animation for the status dot */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Specific button override for the Subscribe page to make it feel more "Active" */
+.neon-form button {
+    width: 100%;
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+}
+
+.neon-form button:hover {
+    background: var(--neon-purple);
+    color: white;
+    box-shadow: 0 0 20px var(--neon-purple);
+}
